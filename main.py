@@ -1,6 +1,7 @@
 Eleccion = 0
 
 def on_button_pressed_a():
+    global Eleccion
     basic.show_leds("""
         . . # . .
         . # # # .
@@ -8,6 +9,25 @@ def on_button_pressed_a():
         . # # # .
         . . # . .
         """)
+    Eleccion = randint(1, 3)
+    if Eleccion == 1:
+        basic.show_leds("""
+            . . # . .
+            . # # # .
+            # # # # #
+            . # # # .
+            . . # . .
+            """)
+    elif Eleccion == 2:
+        basic.show_leds("""
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            """)
+    else:
+        basic.show_icon(IconNames.SCISSORS)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_gesture_shake():
